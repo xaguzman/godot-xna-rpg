@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/SwordBlock.wav-1c9f9b5f633eb8ba97eb158b30f20f6a.sample"
+
+[deps]
+
+source_file="res://content/audio/SwordBlock.wav"
+dest_files=[ "res://.import/SwordBlock.wav-1c9f9b5f633eb8ba97eb158b30f20f6a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

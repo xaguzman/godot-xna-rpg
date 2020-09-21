@@ -1,0 +1,542 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://content/textures/MainMenu/MainMenu.jpg" type="Texture" id=1]
+[ext_resource path="res://content/textures/MainMenu/MainMenuInfoSpace.png" type="Texture" id=2]
+[ext_resource path="res://content/fonts/DescriptionFont.font" type="BitmapFont" id=3]
+[ext_resource path="res://content/textures/MainMenu/GameLogo.png" type="Texture" id=4]
+[ext_resource path="res://content/textures/MainMenu/MainMenuPlank.png" type="Texture" id=5]
+[ext_resource path="res://content/textures/MainMenu/MainMenuPlank02.png" type="Texture" id=6]
+[ext_resource path="res://menu-screens/MainMenu.gd" type="Script" id=7]
+[ext_resource path="res://menu-screens/MainMenuButton.tscn" type="PackedScene" id=8]
+[ext_resource path="res://content/audio/MainTheme.wav" type="AudioStream" id=9]
+[ext_resource path="res://content/textures/MainMenu/ControlJoystick.png" type="Texture" id=10]
+[ext_resource path="res://content/textures/MainMenu/MainMenuPlank03.png" type="Texture" id=11]
+[ext_resource path="res://content/fonts/HeaderFont.font" type="BitmapFont" id=12]
+[ext_resource path="res://content/textures/buttons/LeftTriggerButton.png" type="Texture" id=13]
+[ext_resource path="res://content/textures/buttons/RightTriggerButton.png" type="Texture" id=14]
+[ext_resource path="res://content/fonts/CaptionFont.font" type="BitmapFont" id=15]
+[ext_resource path="res://content/textures/game-screens/LineBorder.png" type="Texture" id=16]
+[ext_resource path="res://content/textures/buttons/BButton.png" type="Texture" id=17]
+[ext_resource path="res://content/fonts/ButtonNamesFont.font" type="BitmapFont" id=18]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[node name="MainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="TextureRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainMenuScreen" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxLayout" type="HBoxContainer" parent="MainMenuScreen"]
+margin_right = 1280.0
+margin_bottom = 720.0
+custom_constants/separation = 40
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LeftSideContainer" type="MarginContainer" parent="MainMenuScreen/HBoxLayout"]
+margin_left = 259.0
+margin_right = 673.0
+margin_bottom = 720.0
+size_flags_vertical = 3
+custom_constants/margin_top = 150
+custom_constants/margin_left = -80
+
+[node name="InfoBoxTexture" type="TextureRect" parent="MainMenuScreen/HBoxLayout/LeftSideContainer"]
+margin_left = -80.0
+margin_top = 150.0
+margin_right = 414.0
+margin_bottom = 636.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="MainMenuScreen/HBoxLayout/LeftSideContainer"]
+margin_left = -80.0
+margin_top = 150.0
+margin_right = 414.0
+margin_bottom = 720.0
+custom_constants/margin_bottom = 100
+
+[node name="InfoContainer" type="CenterContainer" parent="MainMenuScreen/HBoxLayout/LeftSideContainer/MarginContainer"]
+margin_right = 494.0
+margin_bottom = 470.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MainMenuScreen/HBoxLayout/LeftSideContainer/MarginContainer/InfoContainer"]
+margin_left = 163.0
+margin_top = 217.0
+margin_right = 331.0
+margin_bottom = 252.0
+size_flags_vertical = 5
+custom_fonts/font = ExtResource( 3 )
+text = "View Game Help"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LogoContainer" type="MarginContainer" parent="MainMenuScreen/HBoxLayout/LeftSideContainer"]
+margin_left = -80.0
+margin_top = 150.0
+margin_right = 414.0
+margin_bottom = 720.0
+custom_constants/margin_top = -50
+
+[node name="Logo" type="TextureRect" parent="MainMenuScreen/HBoxLayout/LeftSideContainer/LogoContainer"]
+margin_top = -50.0
+margin_right = 464.0
+margin_bottom = 193.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource( 4 )
+
+[node name="MenuOptions" type="VBoxContainer" parent="MainMenuScreen/HBoxLayout"]
+margin_left = 713.0
+margin_right = 1020.0
+margin_bottom = 720.0
+custom_constants/separation = -5
+alignment = 1
+
+[node name="BtnStartGame" parent="MainMenuScreen/HBoxLayout/MenuOptions" instance=ExtResource( 8 )]
+margin_left = 20.0
+margin_top = 145.0
+margin_right = 307.0
+margin_bottom = 235.0
+focus_neighbour_top = NodePath("../BtnExit")
+focus_neighbour_bottom = NodePath("../BtnLoadGame")
+caption = "New Game"
+info = "Start a New Game"
+margin = 20
+
+[node name="BtnLoadGame" parent="MainMenuScreen/HBoxLayout/MenuOptions" instance=ExtResource( 8 )]
+margin_top = 230.0
+margin_right = 307.0
+margin_bottom = 320.0
+focus_neighbour_top = NodePath("../BtnStartGame")
+focus_neighbour_bottom = NodePath("../BtnControls")
+texture_normal = ExtResource( 5 )
+caption = "Load Game"
+info = "Load the Game"
+
+[node name="BtnControls" parent="MainMenuScreen/HBoxLayout/MenuOptions" instance=ExtResource( 8 )]
+margin_left = 20.0
+margin_top = 315.0
+margin_right = 307.0
+margin_bottom = 405.0
+focus_neighbour_top = NodePath("../BtnLoadGame")
+focus_neighbour_bottom = NodePath("../BtnHelp")
+texture_normal = ExtResource( 6 )
+caption = "Controls"
+info = "View Game Controls"
+margin = 20
+
+[node name="BtnHelp" parent="MainMenuScreen/HBoxLayout/MenuOptions" instance=ExtResource( 8 )]
+margin_top = 400.0
+margin_right = 307.0
+margin_bottom = 490.0
+focus_neighbour_top = NodePath("../BtnControls")
+focus_neighbour_bottom = NodePath("../BtnExit")
+caption = "Help"
+info = "View Game Help"
+
+[node name="BtnExit" parent="MainMenuScreen/HBoxLayout/MenuOptions" instance=ExtResource( 8 )]
+margin_left = 20.0
+margin_top = 485.0
+margin_right = 307.0
+margin_bottom = 575.0
+focus_neighbour_top = NodePath("../BtnHelp")
+focus_neighbour_bottom = NodePath("../BtnStartGame")
+texture_normal = ExtResource( 5 )
+caption = "Exit"
+info = "Quit the Game"
+margin = 20
+
+[node name="ControlsScreen" type="MarginContainer" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 13.0
+custom_constants/margin_right = 180
+custom_constants/margin_top = 48
+custom_constants/margin_left = 151
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxLayout" type="VBoxContainer" parent="ControlsScreen"]
+margin_left = 151.0
+margin_top = 48.0
+margin_right = 1113.0
+margin_bottom = 720.0
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TopRow" type="HBoxContainer" parent="ControlsScreen/VBoxLayout"]
+margin_right = 962.0
+margin_bottom = 118.0
+custom_constants/separation = 69
+alignment = 1
+
+[node name="LeftPageContainer" type="VBoxContainer" parent="ControlsScreen/VBoxLayout/TopRow"]
+margin_left = 123.0
+margin_right = 258.0
+margin_bottom = 118.0
+
+[node name="CenterContainer" type="CenterContainer" parent="ControlsScreen/VBoxLayout/TopRow/LeftPageContainer"]
+margin_right = 135.0
+margin_bottom = 86.0
+
+[node name="Texture" type="TextureRect" parent="ControlsScreen/VBoxLayout/TopRow/LeftPageContainer/CenterContainer"]
+margin_left = 37.0
+margin_right = 97.0
+margin_bottom = 86.0
+texture = ExtResource( 13 )
+
+[node name="Label" type="Label" parent="ControlsScreen/VBoxLayout/TopRow/LeftPageContainer"]
+margin_top = 90.0
+margin_right = 135.0
+margin_bottom = 118.0
+custom_fonts/font = ExtResource( 15 )
+custom_colors/font_color = Color( 0.0745098, 0.0705882, 0.0588235, 1 )
+text = "keyboard"
+
+[node name="TitleContainer" type="CenterContainer" parent="ControlsScreen/VBoxLayout/TopRow"]
+margin_left = 327.0
+margin_right = 634.0
+margin_bottom = 118.0
+
+[node name="TextureRect" type="TextureRect" parent="ControlsScreen/VBoxLayout/TopRow/TitleContainer"]
+margin_top = 14.0
+margin_right = 307.0
+margin_bottom = 104.0
+texture = ExtResource( 11 )
+
+[node name="Label" type="Label" parent="ControlsScreen/VBoxLayout/TopRow/TitleContainer"]
+margin_left = 78.0
+margin_top = 39.0
+margin_right = 228.0
+margin_bottom = 78.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_fonts/font = ExtResource( 12 )
+custom_colors/font_color = Color( 0.231373, 0.0705882, 0.0235294, 1 )
+text = "Gamepad"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RightPageContainer" type="VBoxContainer" parent="ControlsScreen/VBoxLayout/TopRow"]
+margin_left = 703.0
+margin_right = 838.0
+margin_bottom = 118.0
+
+[node name="CenterContainer" type="CenterContainer" parent="ControlsScreen/VBoxLayout/TopRow/RightPageContainer"]
+margin_right = 135.0
+margin_bottom = 86.0
+
+[node name="Texture" type="TextureRect" parent="ControlsScreen/VBoxLayout/TopRow/RightPageContainer/CenterContainer"]
+margin_left = 37.0
+margin_right = 97.0
+margin_bottom = 86.0
+texture = ExtResource( 14 )
+
+[node name="Label2" type="Label" parent="ControlsScreen/VBoxLayout/TopRow/RightPageContainer"]
+margin_top = 90.0
+margin_right = 135.0
+margin_bottom = 118.0
+custom_fonts/font = ExtResource( 15 )
+custom_colors/font_color = Color( 0.0745098, 0.0705882, 0.0588235, 1 )
+text = "keyboard"
+
+[node name="MidRowController" type="HBoxContainer" parent="ControlsScreen/VBoxLayout"]
+margin_top = 128.0
+margin_right = 962.0
+margin_bottom = 508.0
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ControlsScreen/VBoxLayout/MidRowController"]
+margin_left = 183.0
+margin_right = 294.0
+margin_bottom = 380.0
+custom_constants/separation = 21
+
+[node name="Label" type="Label" parent="ControlsScreen/VBoxLayout/MidRowController/VBoxContainer"]
+margin_right = 111.0
+margin_bottom = 35.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0.0745098, 0.0705882, 0.0588235, 1 )
+text = "Page Left"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="ControlsScreen/VBoxLayout/MidRowController/VBoxContainer"]
+margin_top = 56.0
+margin_right = 111.0
+margin_bottom = 91.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0.0745098, 0.0705882, 0.0588235, 1 )
+text = "N/A"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="ControlsScreen/VBoxLayout/MidRowController/VBoxContainer"]
+margin_top = 112.0
+margin_right = 111.0
+margin_bottom = 147.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0.0745098, 0.0705882, 0.0588235, 1 )
+text = "Main Menu"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label4" type="Label" parent="ControlsScreen/VBoxLayout/MidRowController/VBoxContainer"]
+margin_top = 168.0
+margin_right = 111.0
+margin_bottom = 203.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0.0745098, 0.0705882, 0.0588235, 1 )
+text = "Exit Game"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label5" type="Label" parent="ControlsScreen/VBoxLayout/MidRowController/VBoxContainer"]
+margin_top = 224.0
+margin_right = 111.0
+margin_bottom = 259.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0.0745098, 0.0705882, 0.0588235, 1 )
+text = "Navigation"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label6" type="Label" parent="ControlsScreen/VBoxLayout/MidRowController/VBoxContainer"]
+margin_top = 280.0
+margin_right = 111.0
+margin_bottom = 315.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0.0745098, 0.0705882, 0.0588235, 1 )
+text = "Navigation"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label7" type="Label" parent="ControlsScreen/VBoxLayout/MidRowController/VBoxContainer"]
+margin_top = 336.0
+margin_right = 111.0
+margin_bottom = 371.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0.0745098, 0.0705882, 0.0588235, 1 )
+text = "N/A"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="ControlsScreen/VBoxLayout/MidRowController"]
+margin_left = 298.0
+margin_right = 664.0
+margin_bottom = 380.0
+custom_constants/margin_top = 10
+
+[node name="TextureRect" type="TextureRect" parent="ControlsScreen/VBoxLayout/MidRowController/MarginContainer"]
+margin_top = 10.0
+margin_right = 366.0
+margin_bottom = 380.0
+texture = ExtResource( 10 )
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ControlsScreen/VBoxLayout/MidRowController"]
+margin_left = 668.0
+margin_right = 779.0
+margin_bottom = 380.0
+custom_constants/separation = 30
+
+[node name="Label2" type="Label" parent="ControlsScreen/VBoxLayout/MidRowController/VBoxContainer2"]
+margin_right = 111.0
+margin_bottom = 35.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0.0745098, 0.0705882, 0.0588235, 1 )
+text = "Page Right"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="ControlsScreen/VBoxLayout/MidRowController/VBoxContainer2"]
+margin_top = 65.0
+margin_right = 111.0
+margin_bottom = 100.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0.0745098, 0.0705882, 0.0588235, 1 )
+text = "N/A"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label4" type="Label" parent="ControlsScreen/VBoxLayout/MidRowController/VBoxContainer2"]
+margin_top = 130.0
+margin_right = 111.0
+margin_bottom = 165.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0.0745098, 0.0705882, 0.0588235, 1 )
+text = "Status"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label5" type="Label" parent="ControlsScreen/VBoxLayout/MidRowController/VBoxContainer2"]
+margin_top = 195.0
+margin_right = 111.0
+margin_bottom = 230.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0.0745098, 0.0705882, 0.0588235, 1 )
+text = "Back	"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label6" type="Label" parent="ControlsScreen/VBoxLayout/MidRowController/VBoxContainer2"]
+margin_top = 260.0
+margin_right = 111.0
+margin_bottom = 295.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0.0745098, 0.0705882, 0.0588235, 1 )
+text = "Ok"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label7" type="Label" parent="ControlsScreen/VBoxLayout/MidRowController/VBoxContainer2"]
+margin_top = 325.0
+margin_right = 111.0
+margin_bottom = 360.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0.0745098, 0.0705882, 0.0588235, 1 )
+text = "Drop Gear"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MidRowKeyboard" type="HBoxContainer" parent="ControlsScreen/VBoxLayout"]
+visible = false
+margin_top = 518.0
+margin_right = 1280.0
+margin_bottom = 518.0
+alignment = 1
+
+[node name="Line" type="HBoxContainer" parent="ControlsScreen/VBoxLayout"]
+margin_top = 518.0
+margin_right = 962.0
+margin_bottom = 538.0
+
+[node name="VSeparator" type="VSeparator" parent="ControlsScreen/VBoxLayout/Line"]
+margin_right = 40.0
+margin_bottom = 20.0
+custom_styles/separator = SubResource( 1 )
+custom_constants/separation = 40
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="ControlsScreen/VBoxLayout/Line"]
+margin_left = 44.0
+margin_right = 44.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 0, 20 )
+texture = ExtResource( 16 )
+expand = true
+stretch_mode = 3
+
+[node name="HSeparator" type="HSeparator" parent="ControlsScreen/VBoxLayout"]
+margin_top = 548.0
+margin_right = 962.0
+margin_bottom = 552.0
+custom_styles/separator = SubResource( 2 )
+
+[node name="BottomRow" type="HBoxContainer" parent="ControlsScreen/VBoxLayout"]
+margin_top = 562.0
+margin_right = 962.0
+margin_bottom = 608.0
+
+[node name="VSeparator" type="VSeparator" parent="ControlsScreen/VBoxLayout/BottomRow"]
+margin_right = 72.0
+margin_bottom = 46.0
+custom_styles/separator = SubResource( 3 )
+custom_constants/separation = 72
+
+[node name="TextureRect" type="TextureRect" parent="ControlsScreen/VBoxLayout/BottomRow"]
+margin_left = 76.0
+margin_right = 122.0
+margin_bottom = 46.0
+texture = ExtResource( 17 )
+
+[node name="Label" type="Label" parent="ControlsScreen/VBoxLayout/BottomRow"]
+margin_left = 126.0
+margin_top = 1.0
+margin_right = 193.0
+margin_bottom = 44.0
+custom_fonts/font = ExtResource( 18 )
+text = "Back"
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+volume_db = -15.0
+autoplay = true
+[connection signal="ready" from="." to="MainMenuScreen/HBoxLayout/MenuOptions/BtnStartGame" method="grab_focus"]
+[connection signal="focus_entered" from="MainMenuScreen/HBoxLayout/MenuOptions/BtnStartGame" to="." method="_on_MenuButton_focus_entered"]
+[connection signal="focus_entered" from="MainMenuScreen/HBoxLayout/MenuOptions/BtnLoadGame" to="." method="_on_MenuButton_focus_entered"]
+[connection signal="focus_entered" from="MainMenuScreen/HBoxLayout/MenuOptions/BtnControls" to="." method="_on_MenuButton_focus_entered"]
+[connection signal="focus_entered" from="MainMenuScreen/HBoxLayout/MenuOptions/BtnHelp" to="." method="_on_MenuButton_focus_entered"]
+[connection signal="focus_entered" from="MainMenuScreen/HBoxLayout/MenuOptions/BtnExit" to="." method="_on_MenuButton_focus_entered"]

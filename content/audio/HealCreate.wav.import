@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/HealCreate.wav-cd75e41c6e856beeccf0bc6dd52ba1ee.sample"
+
+[deps]
+
+source_file="res://content/audio/HealCreate.wav"
+dest_files=[ "res://.import/HealCreate.wav-cd75e41c6e856beeccf0bc6dd52ba1ee.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

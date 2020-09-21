@@ -1,0 +1,18 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://quests/quest.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+name = "Save Mercadia"
+description = "The evil Tamar has stolen the sacred amulet which binds the world of Mercadia together.  Without it, Mercadia is doomed... despair shall overwhelm the populace as volcanoes erupt, earthquakes devour villages, tornadoes engulf the landscape, and hurricanes destroy the harvest fields.  Civilization will come to an end, and darkness will rise to consume the world.  Mercadia needs a Savior!  Mercadia needs you!"
+objective_message = ""
+completion_message = "Welcome, hero.  You must meet new comrades, earn necessary experience, gold, spells, and the equipment required to challenge and defeat the evil Tamar, who resides in his lair, known as the Unspoken Tower.  Be wary!  The Unspoken Tower is filled with monstrosities that only the most hardened of heroes could possibly face.  Good Luck!"
+gear_requirements = [  ]
+monster_requirements = [  ]
+destination_map_name = "Map001"
+destination_npc_name = "Sheddarr"
+destination_objective_message = "Go and speak with Shed-darr the Wise."
+experience_reward = 40
+gold_reward = 0
+gear_names_reward = [  ]

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/StaffHit.wav-2cae884da6a6e14c89cb50bc4eb99dfc.sample"
+
+[deps]
+
+source_file="res://content/audio/StaffHit.wav"
+dest_files=[ "res://.import/StaffHit.wav-2cae884da6a6e14c89cb50bc4eb99dfc.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

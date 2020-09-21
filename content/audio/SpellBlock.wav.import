@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/SpellBlock.wav-a795da542751d5f386e81c06a546ad97.sample"
+
+[deps]
+
+source_file="res://content/audio/SpellBlock.wav"
+dest_files=[ "res://.import/SpellBlock.wav-a795da542751d5f386e81c06a546ad97.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
